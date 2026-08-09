@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hardening guide — so protection doesn't silently die · TinkerProof</title>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+         max-width: 720px; margin: 0 auto; padding: 24px; line-height: 1.6; color: #222; }
+  h1 { font-size: 1.6em; } h2 { font-size: 1.15em; margin-top: 1.6em; }
+  h3 { font-size: 1.05em; margin-top: 1.6em; }
+  .resumen { background: #eef6ee; border-left: 4px solid #2e7d32; padding: 12px 16px; }
+  .aviso { background: #fff8e6; border-left: 4px solid #f9a825; padding: 12px 16px; }
+  .peligro { background: #fdeeee; border-left: 4px solid #c62828; padding: 12px 16px; }
+  .confirmar { background: #f4f4f4; border-left: 4px dashed #9e9e9e; padding: 10px 14px;
+               font-size: .95em; }
+  .estado { font-size: .92em; color: #555; background: #f4f4f4; padding: 8px 12px;
+            border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
+           font-size: .95em; }
+  th { background: #f4f4f4; }
+  .tabla-scroll { overflow-x: auto; }
+  footer { margin-top: 2em; font-size: .9em; color: #666; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #121212; color: #ddd; }
+    .resumen { background: #1b2b1b; border-color: #66bb6a; }
+    .aviso { background: #2b2416; border-color: #fbc02d; }
+    .peligro { background: #2b1717; border-color: #ef5350; }
+    .confirmar { background: #1e1e1e; border-color: #757575; }
+    .estado { color: #bbb; background: #1e1e1e; }
+    th, td { border-color: #444; }
+    th { background: #1e1e1e; }
+    footer { color: #999; }
+  }
+</style>
+</head>
+<body>
+<p style="text-align:right;font-size:.9em"><a href="es/guia_blindaje.html">Español</a></p>
+<h1>Hardening guide — so protection doesn't silently die</h1>
+<p><strong>For parents. You do this once, after setting up TinkerProof.</strong><br>
+<em>Last updated: August 1, 2026</em></p>
+
+<h2>0. Who this is for, when to do it, and how long it takes</h2>
+<ul>
+  <li><strong>Who it's for:</strong> the mom or dad who just finished getting the tablet ready for
+      their child. You don't need to know anything about technology or plug the tablet into a
+      computer.</li>
+  <li><strong>When:</strong> just once, <strong>after</strong> you finish setting up TinkerProof
+      (your PIN, your child's apps, the home screen, and protection). And again
+      <strong>after every major system update</strong>, which sometimes undoes these
+      permissions.</li>
+  <li><strong>How long it takes:</strong> 3 to 10 minutes, depending on the brand.</li>
+</ul>
+
+<p><strong>Why you need to do this.</strong> Many tablets and phones ship with a factory "battery
+saver" that closes apps nobody is actively using, so the battery lasts longer. TinkerProof
+needs to stay awake the whole time: it's the app that brings your child back to their home screen
+when they wander somewhere they shouldn't. If the device closes it, <strong>protection turns off
+on its own, silently</strong>. The steps in this guide tell the device: <em>"hands off this
+app"</em>.</p>
+
+<p>There are <strong>three hardening steps</strong> plus <strong>one final safety step</strong>
+(turning off USB debugging, only if you used it). These steps <strong>cannot be done from inside
+the app</strong>: Android doesn't allow it. That's why you have to do them yourself, by hand,
+once.</p>
+
+<h2>1. ⚠️ The order rule (read this before touching anything)</h2>
+
+<p class="resumen"><strong>PAUSE protection first. Do the hardening with protection paused.
+Turn it back on at the end.</strong></p>
+
+<p><strong>Why.</strong> The menu where "autostart" lives is the brand's <strong>security
+center</strong> (on Xiaomi it's called "Security", on Oppo "Security Center", on
+Vivo "i Manager", on Samsung "Battery and device care"). With protection
+<strong>on</strong>, TinkerProof bounces you out of exactly those menus — which is what it should
+do; that's where a child could take the whole thing apart. But while <strong>you</strong> are the
+one doing the setup, it gets in your way.</p>
+
+<p><strong>How to pause it (10 seconds):</strong></p>
+<ol>
+  <li>On your child's home screen, tap the <strong>gear</strong> (at the top).</li>
+  <li>Enter <strong>your PIN</strong>.</li>
+  <li>Turn off the <strong>"Protection active"</strong> switch.</li>
+</ol>
+
+<p><em>Shortcut: on that same screen, the <strong>"Open system settings"</strong> button pauses
+protection and takes you straight to Settings, in one tap.</em></p>
+
+<p>With protection paused, the tablet goes back to being <strong>a normal tablet</strong>: the
+usual home screen comes up (Samsung's, Xiaomi's, whichever it came with), with all its apps.
+That's where you do the hardening in peace.</p>
+
+<p><strong>How to turn it back on at the end (1 tap):</strong> open <strong>TinkerProof</strong>
+from the device's apps. Just opening it brings kid mode back. It won't ask for your PIN or send
+you back to Settings (the PIN protects turning protection <em>off</em>, not <em>on</em>).</p>
+
+<h3>😌 If you forgot and already turned protection back on, don't worry</h3>
+
+<p><strong>You're not locked out.</strong> Two things save you:</p>
+<ul>
+  <li>You can <strong>pause again</strong> whenever you want with your PIN (gear → PIN →
+      "Protection active" OFF), finish what's left, and reactivate.</li>
+  <li>And when you tap the <strong>"Protection active"</strong> switch and the app sends you to
+      the Accessibility settings, it gives you a grace period (about <strong>2 minutes</strong>) so
+      you can finish that errand without being bounced. <strong>Careful:</strong> that grace period
+      is for <strong>that</strong> trip only, not for the hardening you're about to do by hand —
+      walking to the brand's security center on your own gets <strong>no</strong> grace period.
+      That's why it's better to harden while paused.</li>
+</ul>
+
+<p>So if you were halfway through the hardening and protection came back on: pause and keep going.
+Nothing breaks.</p>
+
+<h2>2. The steps that apply to every brand</h2>
+
+<h3>Step 1 — "Allow restricted settings" · ONLY if the switch shows up GRAYED OUT (Android 13 or newer)</h3>
+
+<p class="aviso">⚠️ <strong>This does NOT happen to everyone. Most people will never see it.</strong>
+It only shows up when the app was installed <strong>outside Google Play</strong> (an APK file
+passed along by hand). Installing from Play, <strong>it doesn't appear</strong>. And on the only
+tablet where this was actually tested (a Samsung Galaxy Tab A8, Android 14), <strong>it didn't
+appear either</strong>.</p>
+
+<p><strong>How you'll know:</strong> when you try to turn on "TinkerProof Protection" in Settings →
+Accessibility, the switch looks <strong>grayed out</strong> and won't respond; the device says
+something like <em>"Restricted setting"</em>.</p>
+
+<p><strong>If it happens to you, the app itself shows you the screen with the steps.</strong> They are:</p>
+<ol>
+  <li>Tap <strong>"Open app info"</strong>.</li>
+  <li>At the top right, tap the <strong>three-dot menu (⋮)</strong>.</li>
+  <li>Choose <strong>"Allow restricted settings"</strong> and confirm.</li>
+  <li>Go back to Accessibility and turn on <strong>"TinkerProof Protection"</strong>.</li>
+</ol>
+
+<p>If the switch was <strong>not</strong> grayed out, this step doesn't apply: tap "Retry in
+Accessibility".</p>
+
+<p class="confirmar"><strong>UNCERTAIN (we're not claiming this):</strong> we don't know for sure
+whether you have to redo this step when the app <strong>updates</strong>. Most likely
+<strong>not</strong>: the block applies at the moment the service is turned <em>on</em>, and it
+normally doesn't turn off one that was already running. If someday you see the "Protection off"
+screen right after an update, now you know where to look.</p>
+
+<h3>Step 2 — Battery: set TinkerProof to "Unrestricted" (all brands)</h3>
+
+<p>This is the step that helps the most, and it exists on almost every modern device.</p>
+
+<p><strong>Usual path:</strong> <strong>Settings → Apps → TinkerProof → Battery →
+"Unrestricted"</strong>.</p>
+
+<p>The names vary a bit by brand and version. Look for a <strong>Battery</strong> option inside
+TinkerProof's app info page and pick the <strong>least battery-saving</strong> choice. The words
+you'll usually see:</p>
+<ul>
+  <li>✅ What you want: <strong>"Unrestricted"</strong>, "Not optimized", "Allow background
+      activity", "Don't optimize".</li>
+  <li>❌ What you do <strong>not</strong> want: "Optimized", "Restricted", "Battery saver",
+      "Put to sleep".</li>
+</ul>
+
+<h3>Step 3 — Autostart: turned on</h3>
+
+<p><strong>This doesn't exist on every brand.</strong> It's specific to Xiaomi, Oppo, OnePlus, Realme,
+Vivo, Honor, Tecno, Infinix, itel, and Asus. It lives inside the brand's security app
+(not in the regular Settings). On Samsung, Motorola, Pixel, and Nokia <strong>it doesn't appear in
+the documentation we use</strong>; if you can't find it on your device, that's fine: the battery
+step is enough.</p>
+
+<p class="aviso">⚠️ <strong>Huawei is not supported</strong> (see section 5). On <strong>Honor</strong>
+this step is worth doing, though on that brand we still <strong>haven't tested it on a real
+device</strong>: see its card in section 4.</p>
+
+<p>👉 <strong>Exactly where to tap, brand by brand: section 4.</strong></p>
+
+<h3>Step 4 — 🚨 If you touched "Developer options": turn USB DEBUGGING off when you finish</h3>
+
+<div class="peligro">
+<p><strong>This is the most important step in the whole guide, and the easiest one to forget.</strong></p>
+<p>Some advanced tips (for example, turning off "MIUI optimization" on Xiaomi) ask you to enter a
+hidden menu called <strong>Developer options</strong>. That menu includes a switch called
+<strong>"USB debugging"</strong>.</p>
+<p><strong>With USB debugging on, anyone who plugs the tablet into a computer can turn off
+protection or remove TinkerProof in a minute.</strong> You'd be opening a bigger hole than the one
+you came to plug.</p>
+<p><strong>When you're done: Settings → Developer options → turn off "USB debugging".</strong>
+(On some devices that menu is inside <strong>"System"</strong>; on Samsung it's <strong>at the
+very bottom of the Settings list</strong>.) If you can, turn off the whole menu (the switch at the
+very top, "Developer options").</p>
+<p>If you never went in there, there's nothing for you to do: it ships turned off from the factory.</p>
+</div>
+
+<h2>3. While you harden, you won't see any alarms — and that's fine</h2>
+
+<p><strong>Important, so you don't get confused.</strong> TinkerProof warns you when protection
+goes down, in two ways:</p>
+
+<div class="tabla-scroll">
+<table>
+  <tr><th>Warning</th><th>What it looks like</th><th>When it appears</th></tr>
+  <tr>
+    <td><strong>The lock screen warning</strong></td>
+    <td>A padlock 🔒 covering your child's home screen: <em>"Protection off"</em>, with the
+        buttons <strong>"Reactivate protection"</strong> and <strong>"Use without protection"</strong></td>
+    <td>When returning to your child's home screen</td>
+  </tr>
+  <tr>
+    <td><strong>The notification</strong></td>
+    <td><em>"Protection off. Tap to reactivate it."</em></td>
+    <td>Every so often (roughly every 15 minutes), even if your child is inside an app</td>
+  </tr>
+</table>
+</div>
+
+<p>There's a second version of both, for when the problem is different: <em>"TinkerProof is no
+longer the home screen"</em> (another app took over the Home button).</p>
+
+<p class="resumen">🔇 <strong>While you're doing the hardening, with protection paused, you will
+NOT see either of them. That's normal, and it does not mean everything is ready.</strong> The lock
+screen warning and the notification only work with protection <strong>on</strong>. If you finish
+the hardening and stare at the screen waiting for a signal, it's not coming: <strong>the last step
+is turning protection on</strong> (opening TinkerProof), and only then does the warning system
+start keeping watch.</p>
+
+<p><strong>How to check it worked (the honest test):</strong></p>
+<ol>
+  <li>Turn protection on (open TinkerProof).</li>
+  <li><strong>Restart the device.</strong> Wait for it to boot up.</li>
+  <li>Your child's home screen should appear with their apps, <strong>without</strong> the padlock 🔒.</li>
+  <li>The long test (the one that really counts): leave the tablet <strong>with the screen off for
+      a whole night</strong>. In the morning, press the power button. If your child's home screen
+      appears and not the padlock, the hardening held.</li>
+</ol>
+
+<p><strong>Two honest limits, so you don't get caught by surprise:</strong></p>
+<ul>
+  <li>The notification warning <strong>doesn't always arrive on time</strong>: on some devices the
+      system delays it or cuts it off. It also needs you to have granted TinkerProof notification
+      permission.</li>
+  <li><strong>No Android app can turn its own accessibility service back on.</strong> If the
+      device turns it off, TinkerProof can warn you and guide you, but the final tap has to come
+      from you.</li>
+</ul>
+
+<h2>4. Brand-by-brand cards</h2>
+
+<p class="confirmar"><strong>How to read each card's status:</strong><br>
+<strong>VERIFIED</strong> = tested on a real device (today, only the Samsung family: a Galaxy Tab
+A8 tablet).<br>
+<strong>INFERRED</strong> = taken from serious documentation (mostly dontkillmyapp.com), but
+<strong>not tested on that device</strong>.<br>
+<strong>DOCUMENTED BY THE SOURCE</strong> = a serious source says so, but <strong>nobody on the
+project has seen it happen on a device</strong>. That is not the same as VERIFIED.<br>
+<strong>UNKNOWN</strong> = no reliable data.<br>
+<strong>⚠️ PATH NOT YET CONFIRMED ON A REAL DEVICE</strong> = we know <em>what</em> to look for,
+but the exact menu path isn't documented and <strong>we'd rather not make it up</strong>.</p>
+
+<h3>📱 Samsung (One UI) — Galaxy Tab, Galaxy S/A</h3>
+
+<p class="estado"><strong>Status:</strong> the app's rules (bouncing out of Settings, capping the
+music/video volume, bouncing out of the device's own home screen) are VERIFIED on a real device (Galaxy Tab
+A8 / Android 14). The hardening path below is INFERRED, and whether the app survives hours with
+the screen off has NOT been tested yet.</p>
+
+<ul>
+  <li><strong>Where to tap:</strong> Settings → Apps → TinkerProof → Battery.</li>
+  <li><strong>What to turn on:</strong> the <strong>"Unrestricted"</strong> option.</li>
+  <li><strong>Also (recommended):</strong> under <strong>"Battery and device
+      care"</strong> there's a list called <strong>"Never sleeping apps"</strong> — add
+      TinkerProof there. ⚠️ <strong>PATH NOT YET CONFIRMED ON A REAL DEVICE:</strong> the exact
+      path to that list changes between One UI versions. Look inside "Battery and device care"
+      → "Battery" → the background usage limits.</li>
+  <li><strong>Autostart:</strong> <strong>doesn't exist</strong> on Samsung. Don't go looking for it.</li>
+  <li><strong>What NOT to touch:</strong> don't put TinkerProof in <strong>"Put unused apps to
+      sleep"</strong> or in the <strong>"Deep sleep"</strong> list. That's the
+      opposite of what you want. ⚠️ <strong>PATH NOT YET CONFIRMED ON A REAL DEVICE:</strong> the
+      exact names change between One UI versions.</li>
+  <li><strong>How to check it stuck:</strong> restart the tablet. It should open to your child's
+      home screen without the padlock 🔒.</li>
+  <li><strong>Samsung-specific warning:</strong> a <strong>system update</strong>
+      can put restrictions back on its own. After every major update,
+      go over this step again.</li>
+</ul>
+
+<h3>📱 Xiaomi / Redmi / POCO (MIUI, HyperOS)</h3>
+
+<p class="estado"><strong>Status:</strong> INFERRED (path from documentation, no device). ⚠️ It's
+one of the brands where this hardening is needed most.</p>
+
+<ul>
+  <li><strong>Where to tap:</strong> Settings → <strong>Apps</strong> → Permissions →
+      <strong>Autostart</strong>.</li>
+  <li><strong>What to turn on:</strong> <strong>Autostart for TinkerProof: ON</strong>.</li>
+  <li><strong>Also:</strong> Settings → Apps → TinkerProof → <strong>Battery</strong> →
+      <strong>"Unrestricted"</strong>.</li>
+  <li><strong>Also (the lock in Recents):</strong> open the recent apps screen,
+      press and hold the TinkerProof card, and tap the <strong>lock</strong>. That way the
+      "clear all" button won't close it.</li>
+  <li><strong>Optional, only if you know what you're doing:</strong> turning off <strong>"MIUI
+      optimization"</strong> inside <em>Developer options</em>. 🚨 If you go in there, read
+      <strong>Step 4</strong> in section 2 and <strong>leave USB debugging off</strong> on your
+      way out.</li>
+  <li><strong>What NOT to touch:</strong> after setting all this up, TinkerProof will
+      <strong>block the "Security" menu</strong> whenever protection is on. That's on
+      purpose. That's why this hardening is done <strong>while paused</strong>.</li>
+  <li><strong>How to check it stuck:</strong> restart the device and wait a minute without touching it.
+      Your child's home screen should stay up, without the padlock 🔒.</li>
+  <li><strong>Xiaomi-specific warning (DOCUMENTED BY THE SOURCE):</strong> after a
+      <strong>system update (HyperOS)</strong>, accessibility can <strong>end up turned
+      off</strong>. It's this brand's #1 risk: every time the device updates, open
+      TinkerProof and make sure the padlock 🔒 doesn't appear.</li>
+</ul>
+
+<h3>📱 Oppo / OnePlus / Realme (ColorOS, OxygenOS, Realme UI)</h3>
+
+<p class="estado"><strong>Status:</strong> INFERRED. ⚠️ The most troublesome brand among those
+TinkerProof supports.</p>
+
+<ul>
+  <li><strong>Where to tap:</strong> the brand's app called <strong>"Security
+      Center"</strong> / <strong>"Security"</strong> / <strong>"Phone Manager"</strong>, in its
+      <strong>autostart</strong> section (<em>Startup manager</em> / <em>Auto
+      Start-up</em>). ⚠️ <strong>PATH NOT YET CONFIRMED ON A REAL DEVICE:</strong> the exact menu
+      path isn't documented and changes between ColorOS versions. What to look for: a list of
+      apps with an "autostart" switch, and there turn <strong>TinkerProof</strong> on.</li>
+  <li><strong>What to turn on:</strong> autostart <strong>ON</strong> for TinkerProof. And on the
+      app's info page: <strong>Battery → "Run in background"</strong> and
+      <strong>"Unrestricted"</strong>.</li>
+  <li><strong>What NOT to touch:</strong> the <strong>"clean up memory" / "speed up"</strong> button.
+      On these devices, cleaning memory can <strong>hand the home screen back to the factory
+      launcher</strong> — that is, push TinkerProof out of its spot. Teach your child that that
+      button is off-limits (and if a message appears saying TinkerProof is no longer the home
+      screen, now you know what happened).</li>
+  <li><strong>How to check it stuck:</strong> turn protection on, <strong>turn the screen off,
+      wait a few minutes, and turn it back on</strong>. Your child's home screen should appear,
+      without the padlock 🔒.</li>
+</ul>
+
+<p class="aviso">⚠️ <strong>A big, honest warning (DOCUMENTED BY THE SOURCE, for Oppo):</strong>
+the community's own documentation says that on Oppo <strong>accessibility services turn off every
+time the screen turns off</strong>, and you have to turn them back on by hand.
+<strong>There is no fix on the app's side.</strong> If that happens on your device, TinkerProof
+will warn you (padlock 🔒 + notification), but the hardening may not be enough. <strong>Whether
+the same failure happens on OnePlus and Realme is UNCERTAIN</strong> — the source only claims it
+for Oppo.</p>
+
+<h3>📱 Vivo / iQOO (Funtouch OS, OriginOS)</h3>
+
+<p class="estado"><strong>Status:</strong> INFERRED (path quoted verbatim from documentation). ⚠️ High
+uncertainty: the source itself says Vivo's restrictions are "not fully
+mapped".</p>
+
+<ul>
+  <li><strong>Where to tap (path exactly as the source publishes it — if your device is set to
+      another language, look for the matching words):</strong><br>
+      <strong>Settings &gt; More settings &gt; Applications &gt; Autostart</strong><br>
+      On old Funtouch OS (2.6 or earlier): <strong>i Manager &gt; App manager &gt; Autostart
+      manager</strong>.</li>
+  <li><strong>What to turn on:</strong>
+    <ul>
+      <li><strong>Autostart</strong> for TinkerProof: <strong>ON</strong>.</li>
+      <li><strong>"High background power consumption"</strong>:
+          <strong>ON</strong> for TinkerProof.</li>
+      <li>On Android 13 or newer: <strong>"Unrestricted battery usage"</strong>.</li>
+    </ul>
+  </li>
+  <li><strong>Watch out for the home screen (INFERRED):</strong> on several Vivo devices, for
+      another app to become the home screen you need to <strong>be signed in with a Vivo
+      account</strong> and <strong>turn off</strong> the option that locks the system home screen
+      (<em>Tap home button to lock system home</em>). Otherwise, the device goes back to its own
+      launcher by itself. ⚠️ <strong>PATH NOT YET CONFIRMED ON A REAL DEVICE.</strong></li>
+  <li><strong>What NOT to touch:</strong> "i Manager" stays blocked while protection is
+      on. That's on purpose.</li>
+  <li><strong>How to check it stuck:</strong> restart, then turn the screen off for a while.
+      Your child's home screen should come back without the padlock 🔒 and <strong>with TinkerProof
+      still as the home screen</strong>.</li>
+</ul>
+
+<h3>📱 Motorola / Lenovo</h3>
+
+<p class="estado"><strong>Status:</strong> INFERRED (medium confidence).</p>
+
+<ul>
+  <li><strong>Where to tap:</strong> Settings → Apps → TinkerProof → <strong>Battery</strong> →
+      <strong>"Unrestricted"</strong>. (Motorola is nearly stock Android, so the common path
+      from section 2 applies well.)</li>
+  <li><strong>What to turn on:</strong> "Unrestricted". <strong>Autostart</strong> doesn't
+      appear in the documentation we use for these brands; if you can't find it on your device,
+      that's fine: the battery step is enough. (Lenovo/ZUI is a different skin from Motorola's
+      and is <strong>less documented</strong>.)</li>
+  <li><strong>Motorola-specific warning (DOCUMENTED BY THE SOURCE):</strong> Motorola ships a
+      component called <strong>"Battery Care"</strong> that closes background apps
+      <strong>even with its switch turned off</strong>. Setting TinkerProof to "Unrestricted" is
+      the practical cure; some people uninstall it with a computer, but we <strong>don't
+      recommend that</strong> (and if you do it, read Step 4: leave <strong>USB debugging
+      off</strong>).</li>
+  <li><strong>Lenovo-specific warning:</strong> on Lenovo tablets, <strong>swiping the TinkerProof
+      card away</strong> on the recent apps screen closes it. Use the
+      <strong>lock</strong> on the card.</li>
+  <li><strong>Also, on Lenovo tablets:</strong> <strong>"Kids Space"</strong> comes preinstalled,
+      and it <strong>also wants to be the home screen</strong>. If the device asks which one to
+      use, choose <strong>TinkerProof</strong> (and "Always"). If Kids Space keeps the Home button,
+      TinkerProof will show you the <em>"TinkerProof is no longer the home screen"</em> message with
+      the button to fix it.</li>
+  <li><strong>How to check it stuck:</strong> restart; then open Recents and tap "clear
+      all": your child's home screen should still be alive, without the padlock 🔒.</li>
+</ul>
+
+<h3>📱 Transsion — Tecno / Infinix / itel</h3>
+
+<p class="estado"><strong>Status:</strong> INFERRED, with UNKNOWN parts. Very common budget
+devices in Latin America.</p>
+
+<ul>
+  <li><strong>Where to tap:</strong> the brand's app called <strong>"PhoneMaster"</strong> (or
+      <strong>"Power Center"</strong> / "Phone Manager" — the name changes by
+      model), in its <strong>autostart</strong> and <strong>battery</strong> sections.
+      ⚠️ <strong>PATH NOT YET CONFIRMED ON A REAL DEVICE:</strong> the exact menu path <strong>is
+      not documented</strong>. What to look for: inside that app, a list of applications with
+      "autostart" / "auto-start" / "run in background" switches, and turn
+      <strong>TinkerProof</strong> on. Also, if it exists, take TinkerProof off the list of
+      "optimized apps" or "apps that get closed".</li>
+  <li><strong>What to turn on:</strong> autostart <strong>ON</strong> and battery <strong>unrestricted</strong>
+      for TinkerProof.</li>
+  <li><strong>What NOT to touch:</strong> <strong>PhoneMaster can uninstall apps by the
+      dozen</strong> with a couple of taps. That's why TinkerProof blocks it while protection
+      is on. Set it up <strong>while paused</strong> and don't go back in unless you
+      need to.</li>
+  <li><strong>How to check it stuck:</strong> restart and let the device sit still for a few minutes
+      with the screen off. Your child's home screen should come back without the padlock 🔒.</li>
+  <li><strong>An honest warning:</strong> these devices have a reputation for closing apps that
+      should stay open. It's one of the brands where <strong>the full-overnight test matters
+      most</strong> before calling the device ready.</li>
+</ul>
+
+<h3>📱 Asus (ZenUI)</h3>
+
+<p class="estado"><strong>Status:</strong> INFERRED. A brand with an aggressive battery saver (4 of
+5 on the community's scale).</p>
+
+<ul>
+  <li><strong>Where to tap:</strong> the brand's app <strong>"Mobile Manager"</strong>, in its
+      <strong>autostart</strong> section (<em>Auto-start Manager</em>) and in
+      <strong>"Power Master"</strong> (battery). ⚠️ <strong>PATH NOT YET CONFIRMED ON A REAL DEVICE:</strong>
+      the names of the two tools are documented, but the exact menu path
+      is <strong>not</strong>. Look for "Mobile Manager" in the app drawer and, inside it, the
+      autostart list.</li>
+  <li><strong>What to turn on:</strong> autostart <strong>ON</strong> for TinkerProof; and in
+      "Power Master", take it out of power saving or set it as <strong>not optimized</strong>.</li>
+  <li><strong>Also:</strong> Settings → Apps → TinkerProof → Battery →
+      <strong>"Unrestricted"</strong>.</li>
+  <li><strong>How to check it stuck:</strong> restart and run the overnight test.</li>
+</ul>
+
+<h3>📱 Sony / LG / TCL-Alcatel / ZTE (generic card)</h3>
+
+<p class="estado"><strong>Status:</strong> mixed. Sony INFERRED · LG INFERRED (low risk) · TCL
+and ZTE UNKNOWN.</p>
+
+<p>These brands don't have a security center as invasive as the Chinese ones, but they aren't
+documented in detail either.</p>
+
+<ul>
+  <li><strong>What applies to all of them:</strong> Settings → Apps → TinkerProof →
+      <strong>Battery</strong> → <strong>"Unrestricted"</strong> (or the least battery-saving
+      equivalent your device offers).</li>
+  <li><strong>Sony (Xperia):</strong> turn off <strong>STAMINA</strong> mode while your child is
+      using the device, or exclude TinkerProof from power saving. The <strong>"Prefer battery
+      life"</strong> option is the most aggressive: avoid it. ⚠️ <strong>PATH NOT YET CONFIRMED ON
+      A REAL DEVICE</strong> for the exact path.</li>
+  <li><strong>LG:</strong> <strong>not scored</strong> in the community source. We assume
+      low risk, but <strong>it's not confirmed</strong> — run the overnight test anyway.</li>
+  <li><strong>TCL / Alcatel / ZTE:</strong> <strong>there is no reliable data</strong> on how they
+      behave. Assume medium risk: do the battery step, check whether the device ships some
+      "phone manager" app with autostart, and <strong>run the full-overnight
+      test no matter what</strong> before calling it ready.</li>
+  <li><strong>How to check it stuck (all of them):</strong> restart + overnight test.</li>
+</ul>
+
+<h3>📱 Google Pixel / Nokia-HMD / stock Android (AOSP, Android Go)</h3>
+
+<p class="estado"><strong>Status:</strong> the cleanest family. The app's rules are
+VERIFIED on the emulator (Android 7, 14, and 16), which is Pixel-style stock Android. Careful: on a Nokia
+nothing has ever been run, neither on an emulator nor on a device. The hardening, INFERRED — but it's barely
+needed.</p>
+
+<ul>
+  <li><strong>They don't need battery or autostart hardening.</strong> These devices don't
+      ship a "battery saver" that kills apps on its own, and they turn the service back on by
+      themselves after a restart. Nokia/HMD has the best possible score on the community's scale
+      (0 = kills nothing).</li>
+  <li><strong>BUT careful, Step 1 CAN still apply to them</strong> — the one in section 2 (<strong>"Allow
+      restricted settings"</strong>) — because it depends on <strong>how the app was
+      installed</strong>, not on the brand: if you installed it from an APK file and not from Google Play,
+      the switch can show up grayed out. From Play, it won't.</li>
+  <li><strong>If you want, just in case:</strong> setting TinkerProof to Battery → "Unrestricted"
+      doesn't hurt or break anything. It's optional.</li>
+  <li><strong>How to check it stuck:</strong> restart; it should open to your child's home screen
+      without the padlock 🔒.</li>
+  <li><strong>Rare case (Android 16):</strong> if someone turned on the device's <strong>"Advanced
+      Protection" mode</strong>, it may not let you turn on TinkerProof's protection. It's an
+      option that has to be turned on deliberately. ⚠️ <strong>PATH NOT YET CONFIRMED ON A REAL DEVICE.</strong>
+      What to look for: inside <strong>Settings</strong>, the
+      <strong>security</strong> section, an option called <strong>"Advanced Protection"</strong> — if
+      it's on, turn it off. <strong>Careful:</strong> turning it off <strong>lowers one of the
+      device's defenses</strong>, so do it <strong>only</strong> if it's genuinely blocking
+      TinkerProof's activation.</li>
+</ul>
+
+<h3>📱 Honor (MagicOS) — unverified</h3>
+
+<p class="estado"><strong>Status:</strong> UNKNOWN. <strong>We have not tested TinkerProof on any
+Honor device.</strong> We don't block it and we don't promise it: if you install it, keep this card
+in hand and tell us how it went.</p>
+
+<ul>
+  <li><strong>Where to tap:</strong> the brand's app (<strong>"Optimizer"</strong> /
+      <strong>"Phone Manager"</strong>), under <strong>autostart</strong>
+      (<em>Auto-launch</em>) and in the battery section. Steps
+      1, 2, and 3 from section 2 apply, same as on any other brand.</li>
+  <li><strong>Why we keep it separate from Huawei:</strong> Honor and Huawei were the same company
+      until late 2020. Since the sale they are different brands, with different systems, and Honor
+      devices ship with Google Play again. The <strong>PowerGenie</strong> app killer that breaks
+      Huawei is documented <strong>for Huawei</strong>: it's reasonable to expect Honor might ship
+      it too, but <strong>nobody has confirmed it</strong>.</li>
+  <li><strong>What to watch for:</strong> if TinkerProof closes by itself every so often and the
+      padlock 🔒 appears, Honor probably ships something similar to PowerGenie. In that case, write
+      to us at <a href="mailto:contact@tinkerproof.com">contact@tinkerproof.com</a> and we'll send
+      you the specific instructions, which exist but which we don't publish.</li>
+</ul>
+
+<p class="aviso">⚠️ <strong>Huawei is out of support</strong> (it is different from Honor). The
+reason is in section 5.</p>
+
+<h2>5. Devices that are left out</h2>
+
+<p>Today TinkerProof <strong>does not support</strong> these devices:</p>
+
+<div class="tabla-scroll">
+<table>
+  <tr><th>Device</th><th>What happens</th><th>Any way around it?</th></tr>
+  <tr>
+    <td><strong>Amazon Fire tablets</strong> (Fire OS 7 and 8)</td>
+    <td>Fire OS <strong>has no menu for choosing the home screen</strong>. TinkerProof
+        installs, but <strong>it can't be your child's home screen</strong>, which is what
+        everything depends on.</td>
+    <td>Only with a computer and technical tools (you have to turn on <strong>developer
+        options</strong> and <strong>USB debugging</strong> — 🚨 if you ever do it,
+        turn debugging off when you finish, see <strong>Step 4</strong> in section 2) — and <strong>it
+        breaks with every Fire OS update</strong>. Not a solution for a family.
+        Amazon has its own "Amazon Kids".</td>
+  </tr>
+  <tr>
+    <td><strong>Huawei</strong> (all of them: EMUI, HarmonyOS 2 through 4)</td>
+    <td>They ship from the factory with an app killer called <strong>PowerGenie</strong>, which closes
+        everything that isn't on a <strong>closed, factory-set whitelist</strong> — and apps
+        <strong>cannot be added to that list</strong>. With it running, TinkerProof dies on its own
+        and protection goes down with it. The hardening in this guide <strong>is not enough</strong>.</td>
+    <td>Instructions to disable PowerGenie exist, but <strong>we don't publish them</strong> and
+        <strong>we haven't tested them on a real device</strong>: we don't want you to buy
+        something that depends on that. If you already own a Huawei and want to try anyway, write
+        to us at <a href="mailto:contact@tinkerproof.com">contact@tinkerproof.com</a>.
+        <strong>Honor is not in this row</strong> — it's been a different brand since 2020: see section 4.</td>
+  </tr>
+  <tr>
+    <td><strong>Huawei with HarmonyOS NEXT</strong> (versions 5 and 6)</td>
+    <td>That system <strong>is no longer Android</strong>: it doesn't run Android apps. The app
+        <strong>won't install</strong>.</td>
+    <td>No.</td>
+  </tr>
+</table>
+</div>
+
+<h2>Something doesn't match your device?</h2>
+<p>Every manufacturer's menus change with updates. If a step in this guide isn't called that on
+your device, write to us at
+<a href="mailto:contact@tinkerproof.com">contact@tinkerproof.com</a> and we'll fix it.</p>
+
+<footer>TinkerProof · com.tinkerproof.app ·
+<a href="privacy_policy.html">Privacy policy</a></footer>
+</body>
+</html>

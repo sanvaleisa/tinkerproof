@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TinkerProof — control parental para Android</title>
+<title>TinkerProof — parental control for Android</title>
 <style>
   body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
          max-width: 720px; margin: 0 auto; padding: 24px; line-height: 1.6; color: #222; }
@@ -24,34 +24,43 @@
 </style>
 </head>
 <body>
+<script>
+  // Detección automática de idioma: navegador en español → portada en español.
+  // "?en" es el escape manual (el link "English" de la versión es/ lo usa para no rebotar).
+  if (location.search.indexOf('en') === -1 &&
+      (navigator.language || '').toLowerCase().indexOf('es') === 0) {
+    location.replace('es/index.html');
+  }
+</script>
+<p style="text-align:right;font-size:.9em"><a href="es/index.html">Español</a></p>
 <h1>TinkerProof</h1>
-<p class="bajada">Control parental para tablets y teléfonos Android.</p>
+<p class="bajada">Parental control for Android tablets and phones.</p>
 
-<p class="resumen"><strong>Qué hace:</strong> convierte la tablet en la pantalla de inicio de tu hijo.
-Muestra solo las apps que vos habilitás, le cierra el paso a los Ajustes del sistema, le pone tope al
-volumen de música, video y juegos y protege la configuración con un PIN.
-<strong>No recopila ningún dato:</strong> todo queda en el equipo.</p>
+<p class="resumen"><strong>What it does:</strong> it turns the tablet into your child's home
+screen. It shows only the apps you allow, blocks the way into system Settings, caps the maximum
+volume of music, video and games, and protects the configuration with a PIN.
+<strong>It collects no data:</strong> everything stays on the device.</p>
 
-<h2>Páginas</h2>
+<h2>Pages</h2>
 
 <div class="tarjeta">
-  <a href="politica_privacidad.html">Política de privacidad</a>
-  <p>Qué datos maneja TinkerProof (ninguno sale del equipo), cómo se guarda el PIN y qué pasa si
-     desinstalás la app.</p>
+  <a href="privacy_policy.html">Privacy policy</a>
+  <p>What data TinkerProof handles (none leaves the device), how the PIN is stored, and what
+     happens if you uninstall the app.</p>
 </div>
 
 <div class="tarjeta">
-  <a href="guia_blindaje.html">Guía: que la protección no se caiga</a>
-  <p>Muchas marcas (Xiaomi, Oppo, Vivo, Motorola, Tecno…) cierran las apps por su cuenta para ahorrar
-     batería, y eso apaga la protección. Acá está el paso a paso, marca por marca, para evitarlo — y
-     la lista de equipos que no soportamos.</p>
+  <a href="hardening_guide.html">Guide: keep protection from turning off</a>
+  <p>Many brands (Xiaomi, Oppo, Vivo, Motorola, Tecno…) close apps on their own to save battery,
+     and that turns protection off. Here is the step-by-step, brand by brand, to prevent it — and
+     the list of devices we don't support.</p>
 </div>
 
-<h2>¿Tenés un problema o algo no coincide con tu equipo?</h2>
-<p>Los menús de cada fabricante cambian con las actualizaciones. Escribinos a
-<a href="mailto:veferno@gmail.com">veferno@gmail.com</a> y te respondemos.</p>
+<h2>Have a problem, or something doesn't match your device?</h2>
+<p>Every manufacturer's menus change with updates. Write to us at
+<a href="mailto:contact@tinkerproof.com">contact@tinkerproof.com</a> and we'll get back to you.</p>
 
-<footer>TinkerProof · com.tinkerproof.app · Contacto:
-<a href="mailto:veferno@gmail.com">veferno@gmail.com</a></footer>
+<footer>TinkerProof · com.tinkerproof.app · Contact:
+<a href="mailto:contact@tinkerproof.com">contact@tinkerproof.com</a></footer>
 </body>
 </html>
