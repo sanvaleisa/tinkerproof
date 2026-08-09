@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de blindaje — que la protección no se caiga sola · TinkerProof</title>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+         max-width: 720px; margin: 0 auto; padding: 24px; line-height: 1.6; color: #222; }
+  h1 { font-size: 1.6em; } h2 { font-size: 1.15em; margin-top: 1.6em; }
+  h3 { font-size: 1.05em; margin-top: 1.6em; }
+  .resumen { background: #eef6ee; border-left: 4px solid #2e7d32; padding: 12px 16px; }
+  .aviso { background: #fff8e6; border-left: 4px solid #f9a825; padding: 12px 16px; }
+  .peligro { background: #fdeeee; border-left: 4px solid #c62828; padding: 12px 16px; }
+  .confirmar { background: #f4f4f4; border-left: 4px dashed #9e9e9e; padding: 10px 14px;
+               font-size: .95em; }
+  .estado { font-size: .92em; color: #555; background: #f4f4f4; padding: 8px 12px;
+            border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
+           font-size: .95em; }
+  th { background: #f4f4f4; }
+  .tabla-scroll { overflow-x: auto; }
+  footer { margin-top: 2em; font-size: .9em; color: #666; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #121212; color: #ddd; }
+    .resumen { background: #1b2b1b; border-color: #66bb6a; }
+    .aviso { background: #2b2416; border-color: #fbc02d; }
+    .peligro { background: #2b1717; border-color: #ef5350; }
+    .confirmar { background: #1e1e1e; border-color: #757575; }
+    .estado { color: #bbb; background: #1e1e1e; }
+    th, td { border-color: #444; }
+    th { background: #1e1e1e; }
+    footer { color: #999; }
+  }
+</style>
+</head>
+<body>
+<h1>Guía de blindaje — que la protección no se caiga sola</h1>
+<p><strong>Para padres. Se hace una sola vez, después de configurar TinkerProof.</strong><br>
+<em>Actualizada: 1 de agosto de 2026</em></p>
+
+<h2>0. Para quién es, cuándo se hace y cuánto tarda</h2>
+<ul>
+  <li><strong>Para quién:</strong> el papá o la mamá que acaba de dejar la tablet lista para el
+      chico. No hace falta saber nada de tecnología ni conectar la tablet a una computadora.</li>
+  <li><strong>Cuándo:</strong> una sola vez, <strong>después</strong> de terminar la configuración
+      de TinkerProof (tu PIN, las apps del chico, la pantalla de inicio y la protección). Y otra vez
+      <strong>después de cada actualización grande del sistema</strong>, que a veces deshace estos
+      permisos.</li>
+  <li><strong>Cuánto tarda:</strong> entre 3 y 10 minutos, según la marca.</li>
+</ul>
+
+<p><strong>Por qué hay que hacerlo.</strong> Muchas tablets y teléfonos vienen con un "ahorrador"
+de fábrica que cierra las apps que no está usando nadie, para que dure más la batería. TinkerProof
+necesita quedarse despierta todo el tiempo: es la que devuelve al chico a su pantalla cuando se va
+a donde no debe. Si el equipo la cierra, <strong>la protección se apaga sola y en
+silencio</strong>. Los pasos de esta guía le avisan al equipo: <em>"a esta app no la
+toques"</em>.</p>
+
+<p>Son <strong>tres pasos de blindaje</strong> más <strong>un paso final de seguridad</strong>
+(apagar la depuración USB, sólo si la usaste). Estos pasos <strong>no se pueden hacer desde
+adentro de la app</strong>: Android no lo permite. Por eso los tenés que hacer vos, a mano, una
+vez.</p>
+
+<h2>1. ⚠️ La regla de orden (leé esto antes de tocar nada)</h2>
+
+<p class="resumen"><strong>Primero PAUSÁ la protección. Blindá con la protección en pausa.
+Activala al final.</strong></p>
+
+<p><strong>Por qué.</strong> El menú donde vive el "inicio automático" es el <strong>centro de
+seguridad de la marca</strong> (en Xiaomi se llama "Seguridad", en Oppo "Centro de seguridad", en
+Vivo "i Manager", en Samsung "Batería y cuidado del dispositivo"). Con la protección
+<strong>activada</strong>, TinkerProof rebota justamente esos menús — está bien que lo haga, ahí es
+donde un chico podría desarmar todo. Pero mientras lo estás configurando <strong>vos</strong>, te
+molesta.</p>
+
+<p><strong>Cómo se pausa (10 segundos):</strong></p>
+<ol>
+  <li>En la pantalla del chico, tocá el <strong>engranaje</strong> (arriba).</li>
+  <li>Ingresá <strong>tu PIN</strong>.</li>
+  <li>Apagá el interruptor <strong>"Protección activa"</strong>.</li>
+</ol>
+
+<p><em>Atajo: en esa misma pantalla, el botón <strong>"Abrir Ajustes del sistema"</strong> pausa la
+protección y te lleva directo a los Ajustes, de un toque.</em></p>
+
+<p>Con la protección en pausa la tablet vuelve a ser <strong>una tablet normal</strong>: aparece la
+pantalla de inicio de siempre (la de Samsung, la de Xiaomi, la que venga), con todas sus apps. Ahí
+hacés el blindaje tranquilo.</p>
+
+<p><strong>Cómo se vuelve a activar al final (1 toque):</strong> abrí <strong>TinkerProof</strong>
+desde las apps del equipo. Con sólo abrirla vuelve el modo chico. No te pide PIN ni te manda de
+nuevo a Ajustes (el PIN protege <em>apagar</em>, no <em>encender</em>).</p>
+
+<h3>😌 Si te olvidaste y ya activaste la protección, no pasa nada</h3>
+
+<p><strong>No quedás encerrado.</strong> Dos cosas te salvan:</p>
+<ul>
+  <li>Podés <strong>pausar de nuevo</strong> cuando quieras con tu PIN (engranaje → PIN →
+      "Protección activa" en OFF), hacer lo que falte y reactivar.</li>
+  <li>Y cuando tocás el interruptor <strong>"Protección activa"</strong> y la app te manda a
+      Ajustes de accesibilidad, se da un rato de gracia (unos <strong>2 minutos</strong>) para que
+      termines el trámite sin que te rebote. <strong>Ojo:</strong> esa gracia es para
+      <strong>ese</strong> viaje, no para el blindaje que estás por hacer a mano — caminar vos solo
+      hasta el centro de seguridad de la marca <strong>no</strong> tiene gracia. Por eso conviene
+      blindar en pausa.</li>
+</ul>
+
+<p>Así que si estabas a mitad del blindaje y se te activó: pausá y seguí. Nada se rompe.</p>
+
+<h2>2. Los pasos que valen para cualquier marca</h2>
+
+<h3>Paso 1 — "Permitir ajustes restringidos" · SÓLO si el interruptor aparece EN GRIS (Android 13 o más nuevo)</h3>
+
+<p class="aviso">⚠️ <strong>Esto NO le pasa a todo el mundo. La mayoría no lo va a ver.</strong>
+Sólo aparece cuando la app se instaló <strong>por fuera de Google Play</strong> (un archivo APK
+pasado a mano). Instalando desde Play <strong>no aparece</strong>. Y en la única tablet donde se
+probó de verdad (una Samsung Galaxy Tab A8, Android 14), <strong>tampoco apareció</strong>.</p>
+
+<p><strong>Cómo te das cuenta:</strong> al querer encender "Protección TinkerProof" en Ajustes →
+Accesibilidad, el interruptor se ve <strong>gris apagado</strong> y no se deja tocar; el equipo
+dice algo como <em>"Ajuste restringido"</em>.</p>
+
+<p><strong>Si te pasa, la propia app te muestra el cartel con los pasos.</strong> Son estos:</p>
+<ol>
+  <li>Tocá <strong>"Abrir info de la app"</strong>.</li>
+  <li>Arriba a la derecha, tocá el <strong>menú de tres puntos (⋮)</strong>.</li>
+  <li>Elegí <strong>"Permitir ajustes restringidos"</strong> y confirmá.</li>
+  <li>Volvé a Accesibilidad y encendé <strong>"Protección TinkerProof"</strong>.</li>
+</ol>
+
+<p>Si el interruptor <strong>no</strong> estaba en gris, este paso no va: tocá "Reintentar en
+Accesibilidad".</p>
+
+<p class="confirmar"><strong>INCIERTO (no lo afirmamos):</strong> no sabemos con certeza si al
+<strong>actualizar</strong> la app hay que volver a hacer este paso. Lo más probable es que
+<strong>no</strong>: el bloqueo se aplica al momento de <em>encender</em> el servicio y normalmente
+no apaga uno que ya estaba andando. Si algún día ves el cartel de "Protección apagada" justo
+después de actualizar, ya sabés dónde mirar.</p>
+
+<h3>Paso 2 — Batería: poner TinkerProof en "Sin restricciones" (todas las marcas)</h3>
+
+<p>Este es el paso que más sirve y existe en casi todos los equipos modernos.</p>
+
+<p><strong>Camino habitual:</strong> <strong>Ajustes → Aplicaciones → TinkerProof → Batería → "Sin
+restricciones"</strong>.</p>
+
+<p>Los nombres cambian un poco según la marca y la versión. Buscá una opción de
+<strong>Batería</strong> dentro de la ficha de TinkerProof y elegí la alternativa <strong>menos
+ahorrativa</strong>. Las palabras que suelen usarse:</p>
+<ul>
+  <li>✅ Lo que querés: <strong>"Sin restricciones"</strong>, "Sin optimizar", "Permitir en
+      segundo plano", "No optimizada".</li>
+  <li>❌ Lo que <strong>no</strong> querés: "Optimizada", "Restringida", "Ahorro de batería",
+      "Poner en reposo".</li>
+</ul>
+
+<h3>Paso 3 — Inicio automático (autostart): encendido</h3>
+
+<p><strong>Esto no existe en todas las marcas.</strong> Es propio de Xiaomi, Oppo, OnePlus, Realme,
+Vivo, Honor, Tecno, Infinix, itel y Asus. Vive dentro de la app de seguridad de la marca
+(no en los Ajustes comunes). En Samsung, Motorola, Pixel y Nokia <strong>no aparece en la
+documentación que usamos</strong>; si en tu equipo no lo encontrás, no pasa nada: con el paso de
+batería alcanza.</p>
+
+<p class="aviso">⚠️ <strong>Huawei no está soportado</strong> (ver sección 5). En <strong>Honor</strong>
+sí conviene hacer este paso, aunque en esa marca todavía <strong>no lo probamos en un equipo
+real</strong>: ver su ficha en la sección 4.</p>
+
+<p>👉 <strong>Dónde tocar exactamente, marca por marca: sección 4.</strong></p>
+
+<h3>Paso 4 — 🚨 Si tocaste "Opciones de desarrollador": apagá la DEPURACIÓN USB al terminar</h3>
+
+<div class="peligro">
+<p><strong>Este es el paso más importante de toda la guía, y el más fácil de olvidar.</strong></p>
+<p>Algunos consejos avanzados (por ejemplo apagar la "optimización MIUI" en Xiaomi) piden entrar a
+un menú escondido que se llama <strong>Opciones de desarrollador</strong>. Ese menú trae un
+interruptor llamado <strong>"Depuración USB"</strong>.</p>
+<p><strong>Con la depuración USB encendida, cualquiera que enchufe la tablet a una computadora
+puede apagar la protección o borrar TinkerProof en un minuto.</strong> Sería abrir un agujero más
+grande que el que viniste a tapar.</p>
+<p><strong>Cuando termines: Ajustes → Opciones de desarrollador → apagá "Depuración USB".</strong>
+(En algunos equipos ese menú está dentro de <strong>"Sistema"</strong>; en Samsung está <strong>al
+final de la lista de Ajustes</strong>.) Si podés, apagá el menú entero (el interruptor de arriba de
+todo, "Opciones de desarrollador").</p>
+<p>Si nunca entraste ahí, no tenés nada que hacer: viene apagado de fábrica.</p>
+</div>
+
+<h2>3. Mientras blindás no vas a ver ninguna alarma — y está bien</h2>
+
+<p><strong>Importante para no confundirse.</strong> TinkerProof avisa cuando la protección se cae,
+de dos formas:</p>
+
+<div class="tabla-scroll">
+<table>
+  <tr><th>Aviso</th><th>Cómo se ve</th><th>Cuándo aparece</th></tr>
+  <tr>
+    <td><strong>La pantalla-cepo</strong></td>
+    <td>Un candado 🔒 que tapa la pantalla del chico: <em>"Protección apagada"</em>, con los
+        botones <strong>"Reactivar protección"</strong> y <strong>"Usar sin protección"</strong></td>
+    <td>Al volver a la pantalla de inicio del chico</td>
+  </tr>
+  <tr>
+    <td><strong>La notificación</strong></td>
+    <td><em>"Protección apagada. Tocá para reactivarla."</em></td>
+    <td>Cada tanto (aprox. cada 15 minutos), aunque el chico esté dentro de una app</td>
+  </tr>
+</table>
+</div>
+
+<p>Hay una segunda versión de los dos, para cuando el problema es otro: <em>"TinkerProof ya no es la
+pantalla de inicio"</em> (otra app se quedó con el botón Home).</p>
+
+<p class="resumen">🔇 <strong>Mientras hacés el blindaje, con la protección en pausa, NO vas a ver
+ninguna de las dos. Es normal, no significa que ya esté todo listo.</strong> El cepo y el aviso
+sólo funcionan con la protección <strong>activada</strong>. Si terminás el blindaje y te quedás
+mirando la pantalla esperando una señal, no va a llegar: <strong>el último paso es activar</strong>
+(abrir TinkerProof), y recién ahí el sistema de avisos empieza a vigilar.</p>
+
+<p><strong>Cómo comprobar que quedó bien (la prueba honesta):</strong></p>
+<ol>
+  <li>Activá la protección (abrí TinkerProof).</li>
+  <li><strong>Reiniciá el equipo.</strong> Esperá a que arranque.</li>
+  <li>Tiene que aparecer la pantalla del chico con sus apps, <strong>sin</strong> el candado 🔒.</li>
+  <li>Prueba larga (la que de verdad vale): dejá la tablet <strong>apagada de pantalla toda una
+      noche</strong>. A la mañana, tocá el botón de encendido. Si aparece la pantalla del chico y
+      no el candado, el blindaje aguantó.</li>
+</ol>
+
+<p><strong>Dos límites honestos, para que no te lleves una sorpresa:</strong></p>
+<ul>
+  <li>El aviso por notificación <strong>no siempre llega a tiempo</strong>: en algunos equipos el
+      sistema lo demora o lo corta. Necesita, además, que le hayas dado permiso de notificaciones
+      a TinkerProof.</li>
+  <li><strong>Ninguna app de Android puede volver a encender su propio servicio de
+      accesibilidad.</strong> Si el equipo lo apaga, TinkerProof puede avisarte y guiarte, pero el
+      toque final lo tenés que dar vos.</li>
+</ul>
+
+<h2>4. Fichas por marca</h2>
+
+<p class="confirmar"><strong>Cómo leer el estado de cada ficha:</strong><br>
+<strong>VERIFICADO</strong> = probado en un equipo real (hoy, sólo la familia Samsung: tablet
+Galaxy Tab A8).<br>
+<strong>INFERIDO</strong> = sacado de documentación seria (sobre todo dontkillmyapp.com), pero
+<strong>sin probarlo en ese equipo</strong>.<br>
+<strong>DOCUMENTADO POR LA FUENTE</strong> = lo dice una fuente seria, pero <strong>nadie del
+proyecto lo vio pasar en un equipo</strong>. No es lo mismo que VERIFICADO.<br>
+<strong>DESCONOCIDO</strong> = no hay dato confiable.<br>
+<strong>⚠️ RUTA A CONFIRMAR EN EQUIPO</strong> = sabemos <em>qué</em> hay que buscar, pero el
+camino exacto del menú no está documentado y <strong>preferimos no inventarlo</strong>.</p>
+
+<h3>📱 Samsung (One UI) — Galaxy Tab, Galaxy S/A</h3>
+
+<p class="estado"><strong>Estado:</strong> las reglas de la app (rebote de Ajustes, tope del volumen
+de música/video, rebote de la pantalla de inicio del equipo) están VERIFICADAS en equipo real (Galaxy Tab
+A8 / Android 14). La ruta de blindaje de abajo es INFERIDA, y que la app aguante horas con la
+pantalla apagada NO se probó todavía.</p>
+
+<ul>
+  <li><strong>Dónde tocar:</strong> Ajustes → Aplicaciones → TinkerProof → Batería.</li>
+  <li><strong>Qué encender:</strong> la opción <strong>"Sin restricciones"</strong>.</li>
+  <li><strong>También (recomendado):</strong> en <strong>"Batería y cuidado del
+      dispositivo"</strong> hay una lista de <strong>"Apps que nunca duermen"</strong> — agregá
+      TinkerProof ahí. ⚠️ <strong>RUTA A CONFIRMAR EN EQUIPO:</strong> el camino exacto hasta esa
+      lista cambia entre versiones de One UI. Buscá dentro de "Batería y cuidado del dispositivo"
+      → "Batería" → los límites de uso en segundo plano.</li>
+  <li><strong>Inicio automático:</strong> <strong>no existe</strong> en Samsung. No lo busques.</li>
+  <li><strong>Qué NO tocar:</strong> no pongas TinkerProof en <strong>"Poner en reposo apps no
+      usadas"</strong> ni en la lista de <strong>"Deep sleep"</strong> (reposo profundo). Es lo
+      contrario de lo que querés. ⚠️ <strong>RUTA A CONFIRMAR EN EQUIPO:</strong> los nombres
+      exactos cambian entre versiones de One UI.</li>
+  <li><strong>Cómo comprobar que quedó:</strong> reiniciá la tablet. Tiene que abrir la pantalla
+      del chico sin el candado 🔒.</li>
+  <li><strong>Aviso propio de Samsung:</strong> una <strong>actualización del sistema</strong>
+      puede volver a poner restricciones por su cuenta. Después de cada actualización grande,
+      repasá este paso.</li>
+</ul>
+
+<h3>📱 Xiaomi / Redmi / POCO (MIUI, HyperOS)</h3>
+
+<p class="estado"><strong>Estado:</strong> INFERIDO (ruta documental, sin equipo). ⚠️ Es una de
+las marcas donde más falta este blindaje.</p>
+
+<ul>
+  <li><strong>Dónde tocar:</strong> Ajustes → <strong>Aplicaciones</strong> → Permisos →
+      <strong>Inicio automático</strong> (<em>Autostart</em>).</li>
+  <li><strong>Qué encender:</strong> <strong>Inicio automático de TinkerProof: ON</strong>.</li>
+  <li><strong>Además:</strong> Ajustes → Aplicaciones → TinkerProof → <strong>Batería</strong> →
+      <strong>"Sin restricciones"</strong>.</li>
+  <li><strong>Además (el candado en Recientes):</strong> abrí la pantalla de apps recientes,
+      mantené apretada la tarjeta de TinkerProof y tocá el <strong>candado</strong>. Así el botón de
+      "limpiar todo" no la cierra.</li>
+  <li><strong>Opcional, sólo si sabés lo que hacés:</strong> apagar la <strong>"optimización
+      MIUI"</strong> dentro de <em>Opciones de desarrollador</em>. 🚨 Si entrás ahí, leé el
+      <strong>Paso 4</strong> de la sección 2 y <strong>dejá la Depuración USB apagada</strong> al
+      salir.</li>
+  <li><strong>Qué NO tocar:</strong> después de configurar todo esto, TinkerProof va a
+      <strong>bloquear el menú "Seguridad"</strong> cuando la protección esté activa. Es a
+      propósito. Por eso este blindaje se hace <strong>en pausa</strong>.</li>
+  <li><strong>Cómo comprobar que quedó:</strong> reiniciá el equipo y esperá un minuto sin tocarlo.
+      Tiene que quedar la pantalla del chico, sin candado 🔒.</li>
+  <li><strong>Aviso propio de Xiaomi (DOCUMENTADO POR LA FUENTE):</strong> después de una
+      <strong>actualización del sistema (HyperOS)</strong> la accesibilidad puede <strong>quedar
+      apagada</strong>. Es el riesgo #1 de esta marca: cada vez que el equipo se actualice, abrí
+      TinkerProof y fijate que no aparezca el candado 🔒.</li>
+</ul>
+
+<h3>📱 Oppo / OnePlus / Realme (ColorOS, OxygenOS, Realme UI)</h3>
+
+<p class="estado"><strong>Estado:</strong> INFERIDO. ⚠️ La marca más problemática de las que
+TinkerProof soporta.</p>
+
+<ul>
+  <li><strong>Dónde tocar:</strong> la app de la marca llamada <strong>"Centro de
+      seguridad"</strong> / <strong>"Seguridad"</strong> / <strong>"Phone Manager"</strong>, en la
+      sección de <strong>inicio automático</strong> (<em>Startup manager</em> / <em>Auto
+      Start-up</em>). ⚠️ <strong>RUTA A CONFIRMAR EN EQUIPO:</strong> el camino exacto del menú no
+      está documentado y cambia entre versiones de ColorOS. Lo que hay que buscar: una lista de
+      apps con un interruptor de "inicio automático", y ahí encender <strong>TinkerProof</strong>.</li>
+  <li><strong>Qué encender:</strong> inicio automático <strong>ON</strong> para TinkerProof. Y en la
+      ficha de la app: <strong>Batería → "Permitir ejecución en segundo plano"</strong> (<em>Run in
+      background</em>) y <strong>"Sin restricciones"</strong>.</li>
+  <li><strong>Qué NO tocar:</strong> el botón de <strong>"limpiar memoria" / "acelerar"</strong>.
+      En estos equipos, limpiar la memoria puede <strong>devolver la pantalla de inicio al launcher
+      de fábrica</strong> — o sea, sacar a TinkerProof de su lugar. Enseñale al chico que ese botón
+      no se toca (y si aparece un cartel diciendo que TinkerProof ya no es la pantalla de inicio, ya
+      sabés qué pasó).</li>
+  <li><strong>Cómo comprobar que quedó:</strong> activá la protección, <strong>apagá la pantalla,
+      esperá unos minutos y volvé a encenderla</strong>. Tiene que aparecer la pantalla del chico,
+      sin candado 🔒.</li>
+</ul>
+
+<p class="aviso">⚠️ <strong>Aviso honesto y grande (DOCUMENTADO POR LA FUENTE, para Oppo):</strong>
+la documentación de la propia comunidad dice que en Oppo <strong>los servicios de accesibilidad se
+apagan cada vez que se apaga la pantalla</strong>, y que hay que volver a encenderlos a mano.
+<strong>No hay solución del lado de la app.</strong> Si en tu equipo pasa eso, TinkerProof te lo va a
+avisar (candado 🔒 + notificación), pero el blindaje puede no alcanzar. <strong>Que la misma falla
+ocurra en OnePlus y Realme está INCIERTO</strong> — la fuente sólo lo afirma para Oppo.</p>
+
+<h3>📱 Vivo / iQOO (Funtouch OS, OriginOS)</h3>
+
+<p class="estado"><strong>Estado:</strong> INFERIDO (ruta documental textual). ⚠️ Alta
+incertidumbre: la propia fuente dice que las restricciones de Vivo "no están del todo
+mapeadas".</p>
+
+<ul>
+  <li><strong>Dónde tocar (ruta tal como la publica la fuente, en inglés — buscá esas mismas
+      palabras si el equipo está en español):</strong><br>
+      <strong>Settings &gt; More settings &gt; Applications &gt; Autostart</strong><br>
+      En Funtouch OS viejo (2.6 o anterior): <strong>i Manager &gt; App manager &gt; Autostart
+      manager</strong>.</li>
+  <li><strong>Qué encender:</strong>
+    <ul>
+      <li><strong>Autostart</strong> de TinkerProof: <strong>ON</strong>.</li>
+      <li><strong>"High background power consumption"</strong> (consumo alto en segundo plano):
+          <strong>ON</strong> para TinkerProof.</li>
+      <li>En Android 13 o más nuevo: <strong>"Unrestricted battery usage"</strong> (uso de batería
+          sin restricciones).</li>
+    </ul>
+  </li>
+  <li><strong>Ojo con la pantalla de inicio (INFERIDO):</strong> en varios Vivo, para que otra app
+      pueda ser la pantalla de inicio hace falta <strong>tener sesión iniciada con una cuenta
+      Vivo</strong> y <strong>desactivar</strong> la opción de "bloquear la pantalla de inicio del
+      sistema" (<em>Tap home button to lock system home</em>). Si no, el equipo vuelve solo a su
+      launcher. ⚠️ <strong>RUTA A CONFIRMAR EN EQUIPO.</strong></li>
+  <li><strong>Qué NO tocar:</strong> el "i Manager" queda bloqueado cuando la protección está
+      activa. Es a propósito.</li>
+  <li><strong>Cómo comprobar que quedó:</strong> reiniciá, y después apagá la pantalla un rato.
+      Tiene que volver la pantalla del chico sin candado 🔒 y <strong>con TinkerProof todavía como
+      pantalla de inicio</strong>.</li>
+</ul>
+
+<h3>📱 Motorola / Lenovo</h3>
+
+<p class="estado"><strong>Estado:</strong> INFERIDO (confianza media).</p>
+
+<ul>
+  <li><strong>Dónde tocar:</strong> Ajustes → Aplicaciones → TinkerProof → <strong>Batería</strong> →
+      <strong>"Sin restricciones"</strong>. (Motorola es casi Android puro, así que el camino común
+      de la sección 2 aplica bien.)</li>
+  <li><strong>Qué encender:</strong> "Sin restricciones". El <strong>inicio automático</strong> no
+      aparece en la documentación que usamos para estas marcas; si en tu equipo no lo encontrás, no
+      pasa nada: con el paso de batería alcanza. (Lenovo/ZUI es una capa distinta de la de Motorola
+      y está <strong>menos documentada</strong>.)</li>
+  <li><strong>Aviso propio de Motorola (DOCUMENTADO POR LA FUENTE):</strong> Motorola trae un
+      componente llamado <strong>"Battery Care"</strong> que cierra apps en segundo plano
+      <strong>incluso con su interruptor apagado</strong>. Ponerla en "Sin restricciones" es la
+      cura práctica; hay quien lo desinstala con una computadora, pero eso <strong>no lo
+      recomendamos</strong> (y si lo hacés, leé el Paso 4: dejá la <strong>Depuración USB
+      apagada</strong>).</li>
+  <li><strong>Aviso propio de Lenovo:</strong> en las tablets Lenovo, <strong>deslizar la tarjeta
+      de TinkerProof</strong> en la pantalla de apps recientes la cierra. Usá el
+      <strong>candado</strong> de la tarjeta.</li>
+  <li><strong>Además, en tablets Lenovo:</strong> viene preinstalada <strong>"Kids Space"</strong>,
+      que <strong>también quiere ser la pantalla de inicio</strong>. Si el equipo te pregunta cuál
+      usar, elegí <strong>TinkerProof</strong> (y "Siempre"). Si Kids Space se queda con el Home,
+      TinkerProof te va a mostrar el cartel <em>"TinkerProof ya no es la pantalla de inicio"</em> con
+      el botón para arreglarlo.</li>
+  <li><strong>Cómo comprobar que quedó:</strong> reiniciá; después abrí Recientes y tocá "limpiar
+      todo": la pantalla del chico tiene que seguir viva, sin candado 🔒.</li>
+</ul>
+
+<h3>📱 Transsion — Tecno / Infinix / itel</h3>
+
+<p class="estado"><strong>Estado:</strong> INFERIDO, con partes DESCONOCIDAS. Gama baja muy común
+en Latinoamérica.</p>
+
+<ul>
+  <li><strong>Dónde tocar:</strong> la app de la marca llamada <strong>"PhoneMaster"</strong> (o
+      <strong>"Power Center"</strong> / "Administrador del teléfono" — el nombre cambia según el
+      modelo), en su sección de <strong>inicio automático</strong> y de <strong>batería</strong>.
+      ⚠️ <strong>RUTA A CONFIRMAR EN EQUIPO:</strong> el camino exacto del menú <strong>no está
+      documentado</strong>. Lo que hay que buscar: dentro de esa app, una lista de aplicaciones con
+      interruptores de "inicio automático" / "autostart" / "ejecutar en segundo plano", y encender
+      <strong>TinkerProof</strong>. También, si existe, sacar a TinkerProof de la lista de "apps
+      optimizadas" o "apps que se cierran".</li>
+  <li><strong>Qué encender:</strong> inicio automático <strong>ON</strong> y batería <strong>sin
+      restricciones</strong> para TinkerProof.</li>
+  <li><strong>Qué NO tocar:</strong> <strong>PhoneMaster puede desinstalar apps de a
+      montones</strong> con un par de toques. Por eso TinkerProof lo bloquea cuando la protección
+      está activa. Configuralo <strong>en pausa</strong> y no vuelvas a entrar salvo que lo
+      necesites.</li>
+  <li><strong>Cómo comprobar que quedó:</strong> reiniciá y dejá el equipo quieto unos minutos con
+      la pantalla apagada. Tiene que volver la pantalla del chico sin candado 🔒.</li>
+  <li><strong>Aviso honesto:</strong> estos equipos tienen fama de cerrar apps que deberían
+      quedarse abiertas. Es de las marcas donde <strong>más conviene hacer la prueba de una noche
+      entera</strong> antes de dar el equipo por listo.</li>
+</ul>
+
+<h3>📱 Asus (ZenUI)</h3>
+
+<p class="estado"><strong>Estado:</strong> INFERIDO. Marca con ahorrador agresivo (4 de 5 en la
+escala de la comunidad).</p>
+
+<ul>
+  <li><strong>Dónde tocar:</strong> la app de la marca <strong>"Mobile Manager"</strong>, en su
+      sección de <strong>inicio automático</strong> (<em>Auto-start Manager</em>) y en
+      <strong>"Power Master"</strong> (batería). ⚠️ <strong>RUTA A CONFIRMAR EN EQUIPO:</strong>
+      los nombres de las dos herramientas están documentados, pero el camino exacto del menú
+      <strong>no</strong>. Buscá "Mobile Manager" en el cajón de apps y, adentro, la lista de
+      inicio automático.</li>
+  <li><strong>Qué encender:</strong> inicio automático <strong>ON</strong> para TinkerProof; y en
+      "Power Master", sacarla del ahorro o ponerla como <strong>no optimizada</strong>.</li>
+  <li><strong>También:</strong> Ajustes → Aplicaciones → TinkerProof → Batería → <strong>"Sin
+      restricciones"</strong>.</li>
+  <li><strong>Cómo comprobar que quedó:</strong> reiniciá y probá la noche entera.</li>
+</ul>
+
+<h3>📱 Sony / LG / TCL-Alcatel / ZTE (ficha genérica)</h3>
+
+<p class="estado"><strong>Estado:</strong> mezcla. Sony INFERIDO · LG INFERIDO (riesgo bajo) · TCL
+y ZTE DESCONOCIDO.</p>
+
+<p>Estas marcas no tienen un centro de seguridad tan invasivo como las chinas, pero tampoco están
+documentadas en detalle.</p>
+
+<ul>
+  <li><strong>Lo que vale para todas:</strong> Ajustes → Aplicaciones → TinkerProof →
+      <strong>Batería</strong> → <strong>"Sin restricciones"</strong> (o el equivalente menos
+      ahorrativo que ofrezca el equipo).</li>
+  <li><strong>Sony (Xperia):</strong> apagá el modo <strong>STAMINA</strong> mientras el equipo lo
+      usa el chico, o excluí a TinkerProof del ahorro. La opción <strong>"Preferir duración de
+      batería"</strong> es la más agresiva: evitala. ⚠️ <strong>RUTA A CONFIRMAR EN
+      EQUIPO</strong> para el camino exacto.</li>
+  <li><strong>LG:</strong> <strong>no está puntuado</strong> en la fuente de la comunidad. Asumimos
+      riesgo bajo, pero <strong>no está confirmado</strong> — hacé igual la prueba de la noche.</li>
+  <li><strong>TCL / Alcatel / ZTE:</strong> <strong>no hay datos confiables</strong> sobre cómo se
+      comportan. Asumí riesgo medio: hacé el paso de batería, buscá si el equipo trae alguna app de
+      "administrador del teléfono" con inicio automático, y <strong>hacé sí o sí la prueba de la
+      noche entera</strong> antes de darlo por listo.</li>
+  <li><strong>Cómo comprobar que quedó (todas):</strong> reiniciar + prueba de la noche.</li>
+</ul>
+
+<h3>📱 Google Pixel / Nokia-HMD / Android puro (AOSP, Android Go)</h3>
+
+<p class="estado"><strong>Estado:</strong> la familia más limpia. Las reglas de la app están
+VERIFICADAS en emulador (Android 7, 14 y 16), que es Android puro estilo Pixel. Ojo: en un Nokia no
+se corrió nunca nada, ni en emulador ni en equipo. El blindaje, INFERIDO — pero es que casi no hace
+falta.</p>
+
+<ul>
+  <li><strong>No necesitan blindaje de batería ni inicio automático.</strong> Estos equipos no
+      traen un "ahorrador" que mate apps por su cuenta, y vuelven a encender el servicio solos
+      después de reiniciar. Nokia/HMD tiene el mejor puntaje posible en la escala de la comunidad
+      (0 = no mata nada).</li>
+  <li><strong>PERO ojo, sí puede aplicarles el Paso 1</strong> de la sección 2 (<strong>"Permitir
+      ajustes restringidos"</strong>), porque ese depende de <strong>cómo se instaló la
+      app</strong>, no de la marca: si la instalaste desde un archivo APK y no desde Google Play,
+      el interruptor puede aparecer en gris. Con Play, no.</li>
+  <li><strong>Si querés, por las dudas:</strong> poner TinkerProof en Batería → "Sin restricciones"
+      no molesta ni rompe nada. Es opcional.</li>
+  <li><strong>Cómo comprobar que quedó:</strong> reiniciá; tiene que abrir la pantalla del chico
+      sin candado 🔒.</li>
+  <li><strong>Caso raro (Android 16):</strong> si alguien encendió el <strong>"Modo de protección
+      avanzada"</strong> del equipo, puede que no deje activar la protección de TinkerProof. Es una
+      opción que hay que prender a propósito. ⚠️ <strong>RUTA A CONFIRMAR EN EQUIPO.</strong> Lo
+      que hay que buscar: dentro de <strong>Ajustes</strong>, la sección de
+      <strong>seguridad</strong>, una opción llamada <strong>"Protección avanzada"</strong> — si
+      está encendida, apagala. <strong>Ojo:</strong> apagarla <strong>baja una defensa del
+      equipo</strong>, así que hacelo <strong>sólo</strong> si de verdad te traba la activación de
+      TinkerProof.</li>
+</ul>
+
+<h3>📱 Honor (MagicOS) — sin verificar</h3>
+
+<p class="estado"><strong>Estado:</strong> DESCONOCIDO. <strong>No probamos TinkerProof en ningún
+Honor.</strong> No lo bloqueamos y no te lo prometemos: si lo instalás, andá con esta ficha en la
+mano y contanos cómo te fue.</p>
+
+<ul>
+  <li><strong>Dónde tocar:</strong> la app de la marca (<strong>"Optimizador"</strong> /
+      <strong>"Administrador del teléfono"</strong>), en <strong>inicio automático</strong>
+      (<em>Auto-launch</em> / <em>Inicio automático</em>) y en el apartado de batería. Aplican los
+      pasos 1, 2 y 3 de la sección 2, igual que en cualquier otra marca.</li>
+  <li><strong>Por qué lo separamos de Huawei:</strong> Honor y Huawei fueron la misma empresa hasta
+      fines de 2020. Desde la venta son marcas distintas, con sistemas distintos, y los Honor
+      vuelven a traer Google Play. El cazador de apps <strong>PowerGenie</strong> que rompe a Huawei
+      está documentado <strong>para Huawei</strong>: que Honor lo traiga es razonable de esperar,
+      pero <strong>nadie lo confirmó</strong>.</li>
+  <li><strong>Qué mirar:</strong> si TinkerProof se cierra sola cada tanto y aparece el candado 🔒,
+      es probable que Honor traiga algo parecido a PowerGenie. En ese caso escribinos a
+      <a href="mailto:veferno@gmail.com">veferno@gmail.com</a> y te pasamos el instructivo
+      específico, que existe pero no publicamos.</li>
+</ul>
+
+<p class="aviso">⚠️ <strong>Huawei quedó fuera de soporte</strong> (es distinto de Honor). El motivo
+está en la sección 5.</p>
+
+<h2>5. Equipos que quedan afuera</h2>
+
+<p>Hoy TinkerProof <strong>no da soporte</strong> a estos equipos:</p>
+
+<div class="tabla-scroll">
+<table>
+  <tr><th>Equipo</th><th>Qué pasa</th><th>¿Hay vuelta?</th></tr>
+  <tr>
+    <td><strong>Tablets Amazon Fire</strong> (Fire OS 7 y 8)</td>
+    <td>Fire OS <strong>no tiene un menú para elegir la pantalla de inicio</strong>. TinkerProof se
+        instala, pero <strong>no puede ser la pantalla del chico</strong>, que es de lo que depende
+        todo.</td>
+    <td>Sólo con una computadora y herramientas técnicas (hay que encender las <strong>opciones de
+        desarrollador</strong> y la <strong>depuración USB</strong> — 🚨 si alguna vez lo hacés,
+        apagá la depuración al terminar, ver <strong>Paso 4</strong> de la sección 2) — y <strong>se
+        rompe en cada actualización de Fire OS</strong>. No es una solución para una familia.
+        Amazon tiene su propio "Amazon Kids".</td>
+  </tr>
+  <tr>
+    <td><strong>Huawei</strong> (todos: EMUI, HarmonyOS 2 a 4)</td>
+    <td>Traen de fábrica un cazador de apps llamado <strong>PowerGenie</strong>, que cierra todo lo
+        que no esté en una <strong>lista blanca cerrada de fábrica</strong> — y a esa lista
+        <strong>no se le pueden agregar apps</strong>. Con él andando, TinkerProof se muere sola y la
+        protección se cae con ella. El blindaje de esta guía <strong>no alcanza</strong>.</td>
+    <td>Existe un instructivo para desactivar PowerGenie, pero <strong>no lo publicamos</strong> y
+        <strong>no lo probamos en un equipo real</strong>: no queremos que compres algo que
+        depende de eso. Si ya tenés un Huawei y querés intentarlo igual, escribinos a
+        <a href="mailto:veferno@gmail.com">veferno@gmail.com</a>.
+        <strong>Honor no está en esta fila</strong> — es otra marca desde 2020: ver sección 4.</td>
+  </tr>
+  <tr>
+    <td><strong>Huawei con HarmonyOS NEXT</strong> (versiones 5 y 6)</td>
+    <td>Ese sistema <strong>ya no es Android</strong>: no corre aplicaciones Android. La app
+        <strong>no se instala</strong>.</td>
+    <td>No.</td>
+  </tr>
+</table>
+</div>
+
+<h2>¿Algo no coincide con tu equipo?</h2>
+<p>Los menús de cada fabricante cambian con las actualizaciones. Si un paso de esta guía no se
+llama así en tu equipo, escribinos a
+<a href="mailto:veferno@gmail.com">veferno@gmail.com</a> y lo corregimos.</p>
+
+<footer>TinkerProof · com.tinkerproof.app ·
+<a href="politica_privacidad.html">Política de privacidad</a></footer>
+</body>
+</html>
