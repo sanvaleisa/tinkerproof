@@ -600,6 +600,92 @@ reason is in section 5.</p>
 </table>
 </div>
 
+<h2 id="safe-mode">🆘 If TinkerProof stops working: safe mode (last resort)</h2>
+
+<p><strong>When this is for:</strong> the tablet is stuck on a black or frozen screen, or keeps
+going back to TinkerProof, and <strong>you can't get in with your PIN or with your rescue
+code</strong>. If the app still responds, don't use this: open the gear ⚙, enter your PIN and turn
+protection off from there. If you forgot your PIN, tap "I forgot my PIN" and enter your rescue
+code.</p>
+
+<p><strong>What safe mode is:</strong> a way of starting Android that every phone and tablet has.
+The device starts with <strong>every downloaded app turned off</strong>, TinkerProof included, and
+shows the manufacturer's own home screen. Your photos, files and apps stay where they are. To leave
+safe mode, simply <strong>restart the device</strong>.</p>
+
+<h3>The steps</h3>
+<ol>
+  <li><strong>Start the device in safe mode</strong> with the steps for your brand (table below).</li>
+  <li><strong>Check that it worked:</strong> the words <strong>"Safe mode"</strong> appear in a
+      bottom corner of the screen.</li>
+  <li>Open <strong>Settings → Apps → TinkerProof → Uninstall</strong>.</li>
+  <li><strong>Restart the device normally.</strong> It will start with the manufacturer's home
+      screen, as it was before TinkerProof.</li>
+  <li><strong>Write to us</strong> at <a href="mailto:contact@tinkerproof.com">contact@tinkerproof.com</a>
+      and tell us your device model: an app that gets stuck is a bug, and we want to fix it. You can
+      then install TinkerProof again from Google Play and set it up from the start (uninstalling
+      deletes your PIN and your list of apps).</li>
+</ol>
+
+<p class="estado"><strong>Status:</strong> that downloaded apps stay off in safe mode and that you
+can uninstall them from Settings is what Android documents; <strong>nobody on the project has yet
+done these five steps on a real device with TinkerProof installed</strong>. The status of each brand
+is in the table. The labels mean the same as in the brand cards (section 4).</p>
+
+<h3>How to start in safe mode, by brand</h3>
+<div class="tabla-scroll">
+<table>
+  <tr><th>Brand</th><th>How</th><th>Status</th></tr>
+  <tr><td><strong>Samsung</strong> (Galaxy Tab, Galaxy S/A)</td>
+      <td>Press and hold the <strong>side button and Volume down</strong> together (or swipe down
+      from the top right and tap the power icon). <strong>Touch and hold "Power off"</strong> until
+      the <strong>"Safe mode"</strong> icon appears, and tap it.<br>
+      <em>If the device is off:</em> turn it on and, when the Samsung logo appears, press and hold
+      <strong>Volume down</strong> until it finishes starting.</td>
+      <td>DOCUMENTED BY THE SOURCE (Samsung's support page)</td></tr>
+  <tr><td><strong>Google Pixel</strong></td>
+      <td>Pixel 6 or newer: press and hold <strong>Power and Volume up</strong> for a few seconds.
+      Pixel 5a or older: press and hold <strong>Power</strong>. Then <strong>touch and hold "Power
+      off"</strong> (or "Restart") and tap <strong>OK</strong>.<br>
+      <em>If the device is off:</em> press Power and, while the startup animation plays, press and
+      hold <strong>Volume down</strong> until it ends.<br>
+      In safe mode, airplane mode turns on by itself.</td>
+      <td>DOCUMENTED BY THE SOURCE (Google's Pixel help)</td></tr>
+  <tr><td><strong>Motorola</strong></td>
+      <td>Press and hold <strong>Power</strong> until the menu appears. <strong>Touch and hold
+      "Power off"</strong> until it offers <strong>"Reboot to safe mode"</strong>, and tap
+      <strong>OK</strong>.</td>
+      <td>DOCUMENTED BY THE SOURCE (phone carrier guides; we didn't find Motorola's own page)</td></tr>
+  <tr><td><strong>Lenovo</strong> (Tab)</td>
+      <td>Same as Motorola: hold <strong>Power</strong>, <strong>touch and hold "Power off"</strong>,
+      and tap <strong>OK</strong>. If the menu doesn't offer it: turn the tablet off, turn it on and,
+      when the logo appears, press and hold <strong>Volume down</strong>.</td>
+      <td>INFERRED (owners' reports; Lenovo's own page we found is for a phone and uses the
+      Volume down way)</td></tr>
+  <tr><td><strong>Xiaomi / Redmi / POCO</strong></td>
+      <td>The Power menu <strong>doesn't offer safe mode</strong>. Turn the device <strong>off</strong>.
+      Turn it on and, <strong>when the logo appears and the device vibrates</strong>, press and hold
+      <strong>Volume down</strong> until it finishes starting.<br>
+      ⚠️ Don't hold Volume down together with Power <em>from the start</em>: that opens a different
+      screen ("Fastboot"). If you see it, hold Power until the device restarts and try again.</td>
+      <td>DOCUMENTED BY THE SOURCE (Xiaomi's support page). That the Power menu doesn't offer it:
+      VERIFIED on a Redmi Note 9S (MIUI 14, Android 12)</td></tr>
+  <tr><td><strong>OnePlus</strong></td>
+      <td>Press and hold <strong>Power</strong> (on newer models, <strong>Power and Volume
+      up</strong>). <strong>Touch and hold "Power off"</strong> and tap <strong>OK</strong> on
+      "Reboot to safe mode".</td>
+      <td>INFERRED (guides from other websites; we didn't find OnePlus's own page)</td></tr>
+  <tr><td><strong>Other brands</strong></td>
+      <td>Try the Motorola way first (touch and hold "Power off"). If the menu doesn't offer it, try
+      the Xiaomi way (Volume down while the logo shows).</td>
+      <td>UNKNOWN</td></tr>
+</table>
+</div>
+
+<p><strong>If none of this works on your device,</strong> write to us at
+<a href="mailto:contact@tinkerproof.com">contact@tinkerproof.com</a> with the model, before trying
+anything that erases the device.</p>
+
 <h2>🔊 How the volume cap works</h2>
 <p>The cap applies <strong>only to media volume</strong> (games, videos, music). The ringtone, call,
 alarm and notification volumes stay fixed at the level you leave them with protection turned off: to
