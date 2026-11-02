@@ -597,6 +597,95 @@ está en la sección 5.</p>
 </table>
 </div>
 
+<h2 id="modo-seguro">🆘 Si TinkerProof deja de funcionar: el modo seguro (último recurso)</h2>
+
+<p><strong>Para cuándo es:</strong> la tablet queda en una pantalla negra o congelada, o vuelve una
+y otra vez a TinkerProof, y <strong>no puede entrar ni con su PIN ni con su código de
+rescate</strong>. Si la app todavía responde, no use esto: toque el engranaje ⚙, escriba su PIN y
+desactive la protección desde ahí. Si olvidó su PIN, toque "No recuerdo mi PIN" y escriba su código
+de rescate.</p>
+
+<p><strong>Qué es el modo seguro:</strong> una forma de arrancar Android que tienen todos los
+teléfonos y tablets. El equipo arranca con <strong>todas las apps descargadas apagadas</strong>,
+TinkerProof incluida, y muestra la pantalla de inicio del fabricante. Sus fotos, archivos y apps
+quedan donde están. Para salir del modo seguro, simplemente <strong>reinicie el equipo</strong>.</p>
+
+<h3>Los pasos</h3>
+<ol>
+  <li><strong>Arranque el equipo en modo seguro</strong> con los pasos de su marca (tabla de abajo).</li>
+  <li><strong>Compruebe que funcionó:</strong> en una esquina de abajo de la pantalla aparecen las
+      palabras <strong>"Modo seguro"</strong>.</li>
+  <li>Abra <strong>Ajustes → Aplicaciones → TinkerProof → Desinstalar</strong>.</li>
+  <li><strong>Reinicie el equipo normalmente.</strong> Va a arrancar con la pantalla de inicio del
+      fabricante, como estaba antes de TinkerProof.</li>
+  <li><strong>Escríbanos</strong> a <a href="mailto:contact@tinkerproof.com">contact@tinkerproof.com</a>
+      y díganos el modelo de su equipo: una app que se traba es un error, y queremos arreglarlo.
+      Después puede volver a instalar TinkerProof desde Google Play y configurarla desde el
+      principio (al desinstalar se borran su PIN y su lista de apps).</li>
+</ol>
+
+<p class="estado"><strong>Estado:</strong> que en modo seguro las apps descargadas quedan apagadas y
+que se pueden desinstalar desde Ajustes es lo que documenta Android; <strong>nadie del proyecto hizo
+todavía estos cinco pasos en un equipo real con TinkerProof instalada</strong>. El estado de cada
+marca está en la tabla. Las etiquetas significan lo mismo que en las fichas por marca (sección 4).</p>
+
+<h3>Cómo arrancar en modo seguro, por marca</h3>
+<div class="tabla-scroll">
+<table>
+  <tr><th>Marca</th><th>Cómo</th><th>Estado</th></tr>
+  <tr><td><strong>Samsung</strong> (Galaxy Tab, Galaxy S/A)</td>
+      <td>Mantenga apretados <strong>el botón lateral y Bajar volumen</strong> a la vez (o deslice
+      desde arriba a la derecha y toque el ícono de encendido). <strong>Mantenga apretado
+      "Apagar"</strong> hasta que aparezca el ícono <strong>"Modo seguro"</strong>, y tóquelo.<br>
+      <em>Si el equipo está apagado:</em> enciéndalo y, cuando aparezca el logo de Samsung,
+      mantenga apretado <strong>Bajar volumen</strong> hasta que termine de arrancar.</td>
+      <td>DOCUMENTADO POR LA FUENTE (página de soporte de Samsung)</td></tr>
+  <tr><td><strong>Google Pixel</strong></td>
+      <td>Pixel 6 o más nuevo: mantenga apretados <strong>Encendido y Subir volumen</strong> unos
+      segundos. Pixel 5a o más viejo: mantenga apretado <strong>Encendido</strong>. Después
+      <strong>mantenga apretado "Apagar"</strong> (o "Reiniciar") y toque <strong>Aceptar</strong>.<br>
+      <em>Si el equipo está apagado:</em> apriete Encendido y, mientras se ve la animación de
+      arranque, mantenga apretado <strong>Bajar volumen</strong> hasta que termine.<br>
+      En modo seguro, el modo avión se enciende solo.</td>
+      <td>DOCUMENTADO POR LA FUENTE (ayuda de Google para Pixel)</td></tr>
+  <tr><td><strong>Motorola</strong></td>
+      <td>Mantenga apretado <strong>Encendido</strong> hasta que aparezca el menú.
+      <strong>Mantenga apretado "Apagar"</strong> hasta que ofrezca <strong>"Reiniciar en modo
+      seguro"</strong>, y toque <strong>Aceptar</strong>.</td>
+      <td>DOCUMENTADO POR LA FUENTE (guías de compañías telefónicas; no encontramos la página de
+      la propia Motorola)</td></tr>
+  <tr><td><strong>Lenovo</strong> (Tab)</td>
+      <td>Igual que Motorola: mantenga apretado <strong>Encendido</strong>, <strong>mantenga
+      apretado "Apagar"</strong> y toque <strong>Aceptar</strong>. Si el menú no lo ofrece: apague
+      la tablet, enciéndala y, cuando aparezca el logo, mantenga apretado <strong>Bajar
+      volumen</strong>.</td>
+      <td>INFERIDO (relatos de usuarios; la página de Lenovo que encontramos es de un teléfono y
+      usa la forma de Bajar volumen)</td></tr>
+  <tr><td><strong>Xiaomi / Redmi / POCO</strong></td>
+      <td>El menú de Encendido <strong>no ofrece el modo seguro</strong>. <strong>Apague</strong> el
+      equipo. Enciéndalo y, <strong>cuando aparezca el logo y el equipo vibre</strong>, mantenga
+      apretado <strong>Bajar volumen</strong> hasta que termine de arrancar.<br>
+      ⚠️ No apriete Bajar volumen junto con Encendido <em>desde el principio</em>: eso abre otra
+      pantalla ("Fastboot"). Si la ve, mantenga apretado Encendido hasta que el equipo se reinicie
+      y vuelva a intentarlo.</td>
+      <td>DOCUMENTADO POR LA FUENTE (página de soporte de Xiaomi). Que el menú de Encendido no lo
+      ofrece: VERIFICADO en un Redmi Note 9S (MIUI 14, Android 12)</td></tr>
+  <tr><td><strong>OnePlus</strong></td>
+      <td>Mantenga apretado <strong>Encendido</strong> (en los modelos nuevos, <strong>Encendido y
+      Subir volumen</strong>). <strong>Mantenga apretado "Apagar"</strong> y toque
+      <strong>Aceptar</strong> en "Reiniciar en modo seguro".</td>
+      <td>INFERIDO (guías de otros sitios web; no encontramos la página de la propia OnePlus)</td></tr>
+  <tr><td><strong>Otras marcas</strong></td>
+      <td>Pruebe primero la forma de Motorola (mantener apretado "Apagar"). Si el menú no lo
+      ofrece, pruebe la de Xiaomi (Bajar volumen mientras se ve el logo).</td>
+      <td>DESCONOCIDO</td></tr>
+</table>
+</div>
+
+<p><strong>Si nada de esto funciona en su equipo,</strong> escríbanos a
+<a href="mailto:contact@tinkerproof.com">contact@tinkerproof.com</a> con el modelo, antes de probar
+cualquier cosa que borre el equipo.</p>
+
 <h2>🔊 Cómo funciona el tope de volumen</h2>
 <p>El tope aplica <strong>sólo al volumen de media</strong> (juegos, videos, música). El timbre, las
 llamadas, la alarma y las notificaciones quedan fijos en el nivel en que los deje con la protección
